@@ -20,6 +20,25 @@ def update():
     split_text = text.split("\n")
     out += split_text
 
+    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-00.csv").read_text(encoding="utf-8")
+    split_text = text.split("\n")
+    out += split_text
+    
+    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-01.csv").read_text(encoding="utf-8")
+    split_text = text.split("\n")
+    out += split_text
+    
+    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-02.csv").read_text(encoding="utf-8")
+    split_text = text.split("\n")
+    out += split_text
+    
+    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-03.csv").read_text(encoding="utf-8")
+    split_text = text.split("\n")
+    out += split_text
+    
+    while "" in out:
+        out.remove("")
+    
     out_text = "\n".join(out)
     Path("./dict_data/default.csv").write_text(out_text, encoding = "utf-8")
 if __name__ == "__main__":

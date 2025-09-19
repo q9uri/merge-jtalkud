@@ -19,8 +19,35 @@ def download_edict2():
     with open("./dict_data/source/license_jtalkud-edict2.txt", 'wb') as saveFile:
         saveFile.write(response.content)
 
+def download_sudachidict():
+    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-00.csv'
+    response = requests.get(url)
+    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-00.csv", 'wb') as saveFile:
+        saveFile.write(response.content)
+
+    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-01.csv'
+    response = requests.get(url)
+    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-01.csv", 'wb') as saveFile:
+        saveFile.write(response.content)
+
+    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-02.csv'
+    response = requests.get(url)
+    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-02.csv", 'wb') as saveFile:
+        saveFile.write(response.content)
+
+    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-03.csv'
+    response = requests.get(url)
+    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-03.csv", 'wb') as saveFile:
+        saveFile.write(response.content)
+
+    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/LICENSE'
+    response = requests.get(url)
+    with open("./dict_data/source/license_jtalkud-sudachidict.txt", 'wb') as saveFile:
+        saveFile.write(response.content)
+
 def download_dictionary():
     download_edict2()
+    download_sudachidict()
 
 if __name__ == "__main__":
     download_dictionary()
