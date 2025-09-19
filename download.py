@@ -19,5 +19,8 @@ def download_edict2():
     with open("./dict_data/source/license_jtalkud-edict2.txt", 'wb') as saveFile:
         saveFile.write(response.content)
 
-if __name__ == "__main__":
+def download_dictionary():
     download_edict2()
+
+if __name__ == "__main__":
+    download_dictionary()

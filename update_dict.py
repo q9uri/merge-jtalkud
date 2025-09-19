@@ -9,7 +9,7 @@
 
 from pathlib import Path
 
-def main():
+def update():
     out = []
 
     text = Path("./dict_data/source/default_bak.csv").read_text(encoding="utf-8")
@@ -23,4 +23,4 @@ def main():
     out_text = "\n".join(out)
     Path("./dict_data/default.csv").write_text(out_text, encoding = "utf-8")
 if __name__ == "__main__":
-    main()
+    update()
