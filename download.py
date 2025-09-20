@@ -49,7 +49,22 @@ csv_list = (
         _csv_dir / "jtalkdic-ud-personal-names-noacc.csv"),
 
     ('https://github.com/q9uri/jtalkdic-ud-place-names/raw/refs/heads/main/build/jtalkdic-ud-place-names-noacc.csv',
-        _csv_dir / "jtalkdic-ud-place-names-noacc.csv")
+        _csv_dir / "jtalkdic-ud-place-names-noacc.csv"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/jtalkdic-ud-thdic-character-noacc.csv',
+        _csv_dir / "jtalkdic-thdic-character-noacc.csv"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/jtalkdic-ud-thdic-music-noacc.csv',
+        _csv_dir / "jtalkdic-thdic-music-noacc.csv"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/jtalkdic-ud-thdic-sakuhin-noacc.csv',
+        _csv_dir / "jtalkdic-thdic-sakuhin-noacc.csv"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/jtalkdic-ud-thdic-spelcard-noacc.csv',
+        _csv_dir / "jtalkdic-thdic-spelcard-noacc.csv"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/jtalkdic-ud-thdic-word-noacc.csv',
+        _csv_dir / "jtalkdic-thdic-word-noacc.csv"),
 )
     
 licence_list = (
@@ -73,6 +88,9 @@ licence_list = (
 
     ('https://github.com/q9uri/jtalkdic-ud-place-names/raw/refs/heads/main/LICENSE',
         _csv_dir / "license_jtalkud-place-names.txt"),
+
+    ('https://github.com/q9uri/jtalkdic-ud-th-dic/raw/refs/heads/main/build/LICENCE',
+        _csv_dir / "license_jtalkud-thdic.txt"),
 
 )
 
