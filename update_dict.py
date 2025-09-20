@@ -6,8 +6,8 @@
 #
 #THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 from pathlib import Path
+from download import csv_list
 
 def update():
     out = []
@@ -16,25 +16,17 @@ def update():
     split_text = text.split("\n")
     out += split_text
 
-    text = Path("./dict_data/source/jtalkdic-ud-edict2-noacc.csv").read_text(encoding="utf-8")
-    split_text = text.split("\n")
-    out += split_text
+    for i in csv_list:
+        file_path = i[1]
+        text = file_path.read_text(encoding="utf-8")
+        split_text = text.split("\n")
+        out += split_text
 
-    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-00.csv").read_text(encoding="utf-8")
-    split_text = text.split("\n")
-    out += split_text
+    while "" in out:
+        out.remove("")
     
-    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-01.csv").read_text(encoding="utf-8")
-    split_text = text.split("\n")
-    out += split_text
-    
-    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-02.csv").read_text(encoding="utf-8")
-    split_text = text.split("\n")
-    out += split_text
-    
-    text = Path("./dict_data/source/jtalkdic-ud-sudachidict-noacc-03.csv").read_text(encoding="utf-8")
-    split_text = text.split("\n")
-    out += split_text
+    out_text = "\n".join(out)
+    Path("./dict_data/default.csv").write_text(out_text, encoding = "utf-8")
     
     while "" in out:
         out.remove("")

@@ -8,46 +8,45 @@
 
 
 import requests
+from pathlib import Path
 
-def download_edict2():
-    url = 'https://github.com/q9uri/jtalkdic-ud-edict2/raw/refs/heads/main/build/jtalkdic-ud-edict2-noacc.csv'
-    response = requests.get(url)
-    with open("./dict_data/source/jtalkdic-ud-edict2-noacc.csv", 'wb') as saveFile:
-        saveFile.write(response.content)
-    url = 'https://github.com/q9uri/jtalkdic-ud-edict2/raw/refs/heads/main/LICENSE'
-    response = requests.get(url)
-    with open("./dict_data/source/license_jtalkud-edict2.txt", 'wb') as saveFile:
-        saveFile.write(response.content)
+_csv_dir = Path("dict_data/source")
+csv_list = (
+    ('https://github.com/q9uri/jtalkdic-ud-edict2/raw/refs/heads/main/build/jtalkdic-ud-edict2-noacc.csv', 
+    _csv_dir / "jtalkdic-ud-edict2-noacc.csv"),
 
-def download_sudachidict():
-    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-00.csv'
-    response = requests.get(url)
-    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-00.csv", 'wb') as saveFile:
-        saveFile.write(response.content)
+    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-00.csv',
+        _csv_dir / "jtalkdic-ud-sudachidict-noacc-00.csv"),
 
-    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-01.csv'
-    response = requests.get(url)
-    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-01.csv", 'wb') as saveFile:
-        saveFile.write(response.content)
+    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-01.csv',
+    _csv_dir / "jtalkdic-ud-sudachidict-noacc-01.csv"),
 
-    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-02.csv'
-    response = requests.get(url)
-    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-02.csv", 'wb') as saveFile:
-        saveFile.write(response.content)
+    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-02.csv',
+        _csv_dir / "jtalkdic-ud-sudachidict-noacc-02.csv"),
 
-    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-03.csv'
-    response = requests.get(url)
-    with open("./dict_data/source/jtalkdic-ud-sudachidict-noacc-03.csv", 'wb') as saveFile:
-        saveFile.write(response.content)
+    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-sudachidict-noacc-03.csv',
+        _csv_dir / "jtalkdic-ud-sudachidict-noacc-03.csv")
+)
+    
+licence_list = (
+    ( 'https://github.com/q9uri/jtalkdic-ud-edict2/raw/refs/heads/main/LICENSE',
+        _csv_dir / "license_jtalkud-edict2.txt"),
 
-    url = 'https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/LICENSE'
-    response = requests.get(url)
-    with open("./dict_data/source/license_jtalkud-sudachidict.txt", 'wb') as saveFile:
-        saveFile.write(response.content)
+    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/LICENSE',
+        _csv_dir / "license_jtalkud-sudachidict.txt")
+)
 
 def download_dictionary():
-    download_edict2()
-    download_sudachidict()
+    
+    download_list = licence_list + csv_list
+
+    for i in download_list:
+        url = i[0]
+        file_path = i[1]
+        if not file_path.is_file():
+            response = requests.get(url)
+            with open(str(file_path), 'wb') as saveFile:
+                saveFile.write(response.content)
 
 if __name__ == "__main__":
     download_dictionary()
