@@ -30,7 +30,7 @@ csv_list = (
     ('https://github.com/q9uri/jtalkdic-ud-jawiki/raw/refs/heads/main/build/jtalkdic-ud-jawiki-noacc-00.csv',
         _csv_dir / "jtalkdic-ud-jawiki-noacc-00.csv"),
 
-    ('https://github.com/q9uri/jtalkdic-ud-sudachidict/raw/refs/heads/main/build/jtalkdic-ud-jawiki-noacc-01.csv',
+    ('https://github.com/q9uri/jtalkdic-ud-jawiki/raw/refs/heads/main/build/jtalkdic-ud-jawiki-noacc-01.csv',
     _csv_dir / "jtalkdic-ud-jawiki-noacc-01.csv"),
 
     ('https://github.com/q9uri/jtalkdic-ud-jawiki/raw/refs/heads/main/build/jtalkdic-ud-jawiki-noacc-02.csv',
