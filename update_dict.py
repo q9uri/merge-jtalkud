@@ -25,12 +25,6 @@ def update():
     while "" in out:
         out.remove("")
     
-    out_text = "\n".join(out)
-    Path("./dict_data/default.csv").write_text(out_text, encoding = "utf-8")
-    
-    while "" in out:
-        out.remove("")
-
     new_out = []
     for line in out:
         split_line = line.split(",")
